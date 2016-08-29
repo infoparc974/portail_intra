@@ -1,0 +1,24 @@
+<div class="col-md-6 col-md-offset-3">
+  <h3 class="text-center">Outils Volcan :</h3>
+
+  <br>
+  <h4>Aller vers une demande Volcan :</h4>
+  <br>
+  <form>
+    <div class="col-lg-6">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="N° Demande Volcan" ng-model="n_demande ">
+        <span class="input-group-btn">
+          <button type="submit" class="btn btn-warning" ng-click="goto()">Go!</button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+  </form>
+
+  <br>
+  <br>
+
+</div>
+<div class="col-md-10">
+<p ng-repeat="item in newListe">{{item}}</p>
+</div>

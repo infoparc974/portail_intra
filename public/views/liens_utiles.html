@@ -1,0 +1,14 @@
+<br>
+<div class="col-md-2 col-sm-3 col-xs-4" ng-repeat="item in item_list">        
+  <a ng-href="{{item.href}}" target="_blank">
+    <div class=" panel panel-default hvr-grow" 
+    style="box-shadow: 40px 35px 20px rgba(0, 0, 0, 0.1)">
+      <div class="panel-body">
+        <img class="img-responsive col-xs-12" ng-src="img/{{item.img}}">
+      </div>
+      <div class="panel-footer text-center">
+        {{item.nom}}
+      </div>
+    </div>
+  </a>
+</div>

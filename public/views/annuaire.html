@@ -1,0 +1,139 @@
+<div ng-init="mafonction('Administration')">
+   <input class="form-control" type="text" placeholder="Effectuez une recherche" ng-model="filter">
+   <br>
+
+
+
+   <!-- Nav tabs -->
+   <ul class="nav nav-tabs nav-justified" role="tablist">
+      <li ng-click="mafonction('Administration')" role="presentation" class="active"><a data-target="#Administration" aria-controls="Administration" role="tab" data-toggle="tab">Administration</a></li>
+      <li ng-click="mafonction('Magasin')" role="presentation"><a data-target="#Magasin" aria-controls="Magasin" role="tab" data-toggle="tab" >Magasin</a></li>
+      <li ng-click="mafonction('Atelier')" role="presentation"><a data-target="#Atelier" aria-controls="Atelier" role="tab" data-toggle="tab">Atelier</a></li>
+      <li ng-click="mafonction('Prestations')" role="presentation"><a data-target="#Prestations" aria-controls="Prestations" role="tab" data-toggle="tab">Prestations</a></li>
+      <li ng-click="mafonction('Exploitation')" role="presentation"><a data-target="#Exploitation" aria-controls="Exploitation" role="tab" data-toggle="tab">Exploitation</a></li>
+   </ul>
+
+   <!-- Tab panes -->
+   <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="Administration">
+         <table class="table table-striped table-condensed md-body-1">
+            <thead>
+               <tr>
+                  <th ng-click="orderByVar = 'nom' ">Nom</th>
+                  <th ng-click="orderByVar = 'prenom' ">Prenom</th>
+                  <th ng-click="orderByVar = 'fonction' ">Fonction</th>
+                  <th ng-click="orderByVar = 'telephone' ">Telephone</th>
+                  <th ng-click="orderByVar = 'poste' ">Poste</th>
+                  <th ng-click="orderByVar = 'gsm' ">GSM</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr ng-repeat="ligne in myNewTab | orderBy : orderByVar | filter:filter as resultsAdm">
+                  <td>{{::ligne.nom}}</td>
+                  <td>{{::ligne.prenom}}</td>
+                  <td>{{::ligne.fonction}}</td>
+                  <td>{{::ligne.telephone}}</td>
+                  <td>{{::ligne.poste}}</td>
+                  <td>{{::ligne.gsm}}</td>
+               </tr>
+            </tbody>
+         </table >
+      </div>
+      <div role="tabpanel" class="tab-pane" id="Magasin">
+         <table class="table table-striped table-condensed md-body-1">
+            <thead>
+               <tr>
+                  <th ng-click="orderByVar = 'nom' ">Nom</th>
+                  <th ng-click="orderByVar = 'prenom' ">Prenom</th>
+                  <th ng-click="orderByVar = 'fonction' ">Fonction</th>
+                  <th ng-click="orderByVar = 'telephone' ">Telephone</th>
+                  <th ng-click="orderByVar = 'poste' ">Poste</th>
+                  <th ng-click="orderByVar = 'gsm' ">GSM</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr ng-repeat="ligne in myNewTab | orderBy : orderByVar | filter:filter as resultsMag">
+                  <td>{{::ligne.nom}}</td>
+                  <td>{{::ligne.prenom}}</td>
+                  <td>{{::ligne.fonction}}</td>
+                  <td>{{::ligne.telephone}}</td>
+                  <td>{{::ligne.poste}}</td>
+                  <td>{{::ligne.gsm}}</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="Atelier">
+         <table class="table table-striped table-condensed md-body-1">
+            <thead>
+               <tr>
+                  <th ng-click="orderByVar = 'nom' ">Nom</th>
+                  <th ng-click="orderByVar = 'prenom' ">Prenom</th>
+                  <th ng-click="orderByVar = 'fonction' ">Fonction</th>
+                  <th ng-click="orderByVar = 'telephone' ">Telephone</th>
+                  <th ng-click="orderByVar = 'poste' ">Poste</th>
+                  <th ng-click="orderByVar = 'gsm' ">GSM</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr ng-repeat="ligne in myNewTab | orderBy : orderByVar | filter:filter as resultsAte">
+                  <td>{{::ligne.nom}}</td>
+                  <td>{{::ligne.prenom}}</td>
+                  <td>{{::ligne.fonction}}</td>
+                  <td>{{::ligne.telephone}}</td>
+                  <td>{{::ligne.poste}}</td>
+                  <td>{{::ligne.gsm}}</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="Prestations">
+         <table class="table table-striped table-condensed md-body-1">
+            <thead>
+               <tr>
+                  <th ng-click="orderByVar = 'nom' ">Nom</th>
+                  <th ng-click="orderByVar = 'prenom' ">Prenom</th>
+                  <th ng-click="orderByVar = 'fonction' ">Fonction</th>
+                  <th ng-click="orderByVar = 'telephone' ">Telephone</th>
+                  <th ng-click="orderByVar = 'poste' ">Poste</th>
+                  <th ng-click="orderByVar = 'gsm' ">GSM</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr ng-repeat="ligne in myNewTab | orderBy : orderByVar | filter:filter as resultsPre">
+                  <td>{{::ligne.nom}}</td>
+                  <td>{{::ligne.prenom}}</td>
+                  <td>{{::ligne.fonction}}</td>
+                  <td>{{::ligne.telephone}}</td>
+                  <td>{{::ligne.poste}}</td>
+                  <td>{{::ligne.gsm}}</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="Exploitation">
+         <table class="table table-striped table-condensed md-body-1">
+            <thead>
+               <tr>
+                  <th ng-click="orderByVar = 'nom' ">Nom</th>
+                  <th ng-click="orderByVar = 'prenom' ">Prenom</th>
+                  <th ng-click="orderByVar = 'fonction' ">Fonction</th>
+                  <th ng-click="orderByVar = 'telephone' ">Telephone</th>
+                  <th ng-click="orderByVar = 'poste' ">Poste</th>
+                  <th ng-click="orderByVar = 'gsm' ">GSM</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr ng-repeat="ligne in myNewTab | orderBy : orderByVar | filter:filter as resultsExp">
+                  <td>{{::ligne.nom}}</td>
+                  <td>{{::ligne.prenom}}</td>
+                  <td>{{::ligne.fonction}}</td>
+                  <td>{{::ligne.telephone}}</td>
+                  <td>{{::ligne.poste}}</td>
+                  <td>{{::ligne.gsm}}</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>

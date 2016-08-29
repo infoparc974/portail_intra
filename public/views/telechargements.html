@@ -1,0 +1,26 @@
+<div class="panel panel-warning">
+   <div class="panel-heading">
+      <h3 class="panel-title">Centre de téléchargements</h3>
+   </div>
+   <div class="panel-body">
+
+
+      <br>
+      <div class="col-md-3 col-sm-3 col-xs-4" ng-repeat="doc in doc_list"> 
+         <div class=" panel panel-default">
+            <div class="panel-heading">
+               <h3 class="panel-title">{{doc.nom}}</h3>
+            </div>
+            <div class="panel-body">
+               <img class="img-responsive col-xs-12" ng-src="img/{{doc.img}}">
+            </div>
+            <div class="panel-footer text-center">
+               <a ng-href="{{doc.href}}" download="">Télécharger</a> ou 
+               <a ng-href="{{doc.href}}" target="_blank">Visualiser</a>
+            </div>
+         </div>
+
+      </div>
+   </div>
+</div>
+</div>

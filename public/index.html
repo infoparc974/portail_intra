@@ -1,0 +1,147 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="css/lumen.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
+  <link rel="icon" type="image/jpg" href="img/favicon.jpg">
+  <title>Portail SMPRR</title>
+
+</head>
+<body >
+  <div class="container">
+    <br>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <img src="img/banner.png" class="img-responsive ">
+      </div>
+    </div>
+    <nav class="navbar navbar-default" ng-controller="navCtrl">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#/liens_utiles">
+            Portail SMPRR
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="#/liens_utiles" >Liens utiles</a></li>
+            <li><a href="#/annuaire">Annuaire</a></li>
+            <li><a href="#/volcan">Outils Volcan</a></li>
+            <li><a href="manuel.html">Manuel Volcan</a></li>
+            <li><a href="" ng-click="planning()">Planning SMPRR</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li ng-if="isLogged == false"><a href="#/ldap_login">Se connecter</a></li>
+            <li class="dropdown" ng-if="isLogged == true">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bonjour <b>{{currentUserName}}</b> <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#/mon_compte">Mon compte</a></li>
+                <li><a href="" ng-click="logout()">Deconnexion</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div ng-view></div>
+
+  </div>
+
+
+  <footer class="footer" ng-controller="footerCtrl">
+    <div class="container">
+      <p class="text-muted">© SMPRR 2016 &nbsp | &nbsp Page créée par Samuel Cochard
+        <a style="cursor:pointer" class="pull-right" href="#/telechargements">&nbsp <span class="glyphicon glyphicon-save " aria-hidden="true"></span></a>
+        <a style="cursor:pointer" class="pull-right" data-toggle="modal" data-target="#helpModal">Besoin d'aide ? |</a>
+
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- Modal contact -->
+
+  <div class="modal fade" id="helpModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Besoin d'aide ?</h4>
+        </div>
+        <div class="modal-body">
+          <p>Une question, une remarque ou une suggestion ?<br><br>
+            Contactez-nous :
+            <ul>
+              <li>samuel.cochard@cr-reunion.fr</li>
+              <li>sebastien.grondin@cr-reunion.fr</li>
+              <li>ou composez le 0262 48 43 16</li>
+            </ul>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+  <script src="/js/angular.js"></script>
+  <script src="/js/angular-route.js"></script>
+  <script src="/controllers/controller.js"></script>
+  <script src="/controllers/routeCtrl.js"></script>
+  <script src="/controllers/appCtrl.js"></script>
+  <script src="/controllers/annuaireCtrl.js"></script>
+  <script src="/controllers/loginCtrl.js"></script>
+  <script src="/controllers/LdapLoginCtrl.js"></script>
+  <script src="/controllers/footerCtrl.js"></script>
+  <script src="/controllers/VolcanCtrl.js"></script>
+  <script src="/controllers/myAccountCtrl.js"></script>
+  <script src="/controllers/teleCtrl.js"></script>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/jquery.sticky.js"></script>
+  <script src="/js/scrolling-nav.js"></script>
+  <script src="/js/jquery.easing.min.js"></script>
+  <script src="/js/jquery.toaster.js"></script>
+  <script src="/js/jquery.vide.min.js"></script>
+  <script src="/js/moment.min.js"></script>
+  <script src="/js/angular-animate.min.js"></script>
+  <script src="/js/angular-cookies.js"></script>
+  <script src="/js/angular-upload.min.js"></script>
+
+  <script>
+
+    $(".nav a").on("click", function(){
+      $(".nav").find(".active").removeClass("active");
+      $(this).parent().addClass("active");
+    });
+
+    $('.dropdown').hover(function(){ 
+      $('.dropdown-toggle', this).trigger('click'); 
+    });
+
+    $(document).ready(function(){
+      $(window).stuck();
+    });
+
+    $("#head").click(function(){
+      $("#bod").toggle("fast");
+      $("#tr-pan").toggleClass("spin");
+    });
+  </script>
+
+
+</body>
+</html>
